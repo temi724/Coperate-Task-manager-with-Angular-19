@@ -11,13 +11,15 @@ export class AppComponent {
   title = 'task-manager';
   users = DUMMY_USERS;
   name: string = '';
+  selectedUserId?: string;
+
+  get selectedUser() {
+    return this.users.find((user) => user.id === this.selectedUserId);
+  }
 
   onUserSelected(userId: string) {
-    console.log('User selected:' + userId);
-    const selectedUser = this.users.find((user) => user.id === userId);
-    if (selectedUser) {
-      this.name = selectedUser.name;
-    }
-    console.log('Selected user:', selectedUser);
+    this.selectedUserId = userId;
+
+    // console.log('Selected user:', selectedUser);
   }
 }
