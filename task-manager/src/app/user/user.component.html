@@ -1,7 +1,11 @@
 <div class="m-auto my-2">
   <div
     (click)="onSelect()"
-    class="bg-[#433352] h-14 w-[250px] mt-2 rounded-md flex hover:bg-[#9965dd]"
+    [ngClass]="{
+      'bg-[#433352] hover:bg-[#9965dd]': !selected,
+      'bg-[#9965dd]': selected
+    }"
+    class="h-14 w-[250px] mt-2 rounded-md flex"
   >
     <div class="flex space-x-5 p-1 items-center">
       <div class="h-10 w-10 bg-white rounded-full">

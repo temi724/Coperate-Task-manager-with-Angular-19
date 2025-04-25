@@ -4,6 +4,7 @@
     @for(user of users; track user.id ){
     <li>
       <app-user
+        [selected]="user.id === selectedUser?.id"
         class="w-[30%]"
         [user]="user"
         (userSelected)="onUserSelected($event)"
