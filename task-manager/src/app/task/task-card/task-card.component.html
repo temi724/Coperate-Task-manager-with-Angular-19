@@ -1,0 +1,10 @@
+<article class="bg-[#bf9ee5] mt-2 text-left p-2 text-[#25113d]">
+  <h1 class="font-bold">{{ task.title }}</h1>
+  <time class="text-sm" datetime="">{{ task.dueDate | date }}</time>
+  <p class="text-sm">{{ task.summary }}</p>
+  <p class="actions text-right">
+    <button class="bg-[#380774] text-white p-2 rounded-md text-sm">
+      Complete
+    </button>
+  </p>
+</article>

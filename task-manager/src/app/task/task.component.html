@@ -1,1 +1,21 @@
-<h1>{{ name }}</h1>
+<section
+  class="bg-[#3a2c54] p-2 flex max-h-[60vh] w-[100%] overflow-auto flex-col rounded-md"
+>
+  <div class="flex justify-between w-full">
+    <div>
+      <h1 class="font-bold text-1xl">{{ name }}</h1>
+    </div>
+    <button
+      class="bg-[#9965dd] h-10 rounded-[4px] text-sm text-black hover:bg-[#a565dd] hover:text-white p-2"
+    >
+      Add Task
+    </button>
+  </div>
+  <ul>
+    @for(task of userTasks; track task.id) {
+    <li>
+      <app-task-card [task]="task" />
+    </li>
+    }
+  </ul>
+</section>

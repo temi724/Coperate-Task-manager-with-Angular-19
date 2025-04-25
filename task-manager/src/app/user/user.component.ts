@@ -1,5 +1,6 @@
 import { Component, Input, input, Output, EventEmitter } from '@angular/core';
 import { DUMMY_USERS } from '../data';
+import { type User } from '../models/user';
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
 // type User = {
@@ -7,12 +8,6 @@ const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 //   name: string;
 //   avatar: string;
 // };
-
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
 
 @Component({
   selector: 'app-user',
