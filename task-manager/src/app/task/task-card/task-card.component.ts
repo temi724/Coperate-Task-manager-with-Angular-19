@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { dummyTasks } from '../../data';
 import { Task } from '../../models/task';
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-task-card',
@@ -11,9 +12,11 @@ import { Task } from '../../models/task';
 export class TaskCardComponent {
   tasks = dummyTasks;
   @Input({ required: true }) task!: Task;
-  @Output() taskCompleted = new EventEmitter<string>();
+  // @Output() taskCompleted = new EventEmitter<string>();
+
+  constructor(private taskService: TaskService) {}
 
   onComplete() {
-    this.taskCompleted.emit(this.task.id);
+    this.taskService.removeTask(this.task.id);
   }
 }

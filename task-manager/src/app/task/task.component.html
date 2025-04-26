@@ -15,11 +15,11 @@
   <ul>
     @for(task of userTasks; track task.id) {
     <li>
-      <app-task-card [task]="task" (taskCompleted)="onTaskCompleted($event)" />
+      <app-task-card [task]="task" />
     </li>
     }
   </ul>
 </section>
 @if (addtaskClicked) {
-<app-add-task (close)="closeAddTask()" (addTask)="onTaskAdded($event)" />
+<app-add-task [userId]="userId" (close)="closeAddTask()" />
 }
