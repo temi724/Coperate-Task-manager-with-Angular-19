@@ -7,10 +7,18 @@ import { HeaderComponent } from './header/header.component';
 import { UserComponent } from './user/user.component';
 import { TaskComponent } from './task/task.component';
 import { TaskCardComponent } from './task/task-card/task-card.component';
+import { AddTaskComponent } from './task/add-task/add-task.component';
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, UserComponent, TaskComponent, TaskCardComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    UserComponent,
+    TaskComponent,
+    TaskCardComponent,
+    // AddTaskComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, AddTaskComponent],
   providers: [],
   bootstrap: [AppComponent],
 })

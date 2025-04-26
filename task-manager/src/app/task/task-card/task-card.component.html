@@ -3,7 +3,10 @@
   <time class="text-sm" datetime="">{{ task.dueDate | date }}</time>
   <p class="text-sm">{{ task.summary }}</p>
   <p class="actions text-right">
-    <button class="bg-[#380774] text-white p-2 rounded-md text-sm">
+    <button
+      (click)="onComplete()"
+      class="bg-[#380774] text-white p-2 rounded-md text-sm"
+    >
       Complete
     </button>
   </p>

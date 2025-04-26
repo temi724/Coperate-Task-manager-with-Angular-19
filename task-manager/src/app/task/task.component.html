@@ -6,6 +6,7 @@
       <h1 class="font-bold text-1xl">{{ name }}</h1>
     </div>
     <button
+      (click)="onAddTaskClicked()"
       class="bg-[#9965dd] h-10 rounded-[4px] text-sm text-black hover:bg-[#a565dd] hover:text-white p-2"
     >
       Add Task
@@ -14,8 +15,11 @@
   <ul>
     @for(task of userTasks; track task.id) {
     <li>
-      <app-task-card [task]="task" />
+      <app-task-card [task]="task" (taskCompleted)="onTaskCompleted($event)" />
     </li>
     }
   </ul>
 </section>
+@if (addtaskClicked) {
+<app-add-task (close)="closeAddTask()" (addTask)="onTaskAdded($event)" />
+}
