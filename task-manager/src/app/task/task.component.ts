@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { dummyTasks } from '../data';
 import { NewTask, Task } from '../models/task';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { TaskCardComponent } from './task-card/task-card.component';
 import { TaskService } from './task.service';
 
 @Component({
@@ -10,7 +12,6 @@ import { TaskService } from './task.service';
   styleUrl: './task.component.css',
 })
 export class TaskComponent {
-  // tasks: Task[] = dummyTasks;
   @Input({ required: true }) name!: string;
   @Input({ required: true }) userId!: string;
   addtaskClicked: boolean = false;
