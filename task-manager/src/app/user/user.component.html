@@ -1,11 +1,10 @@
 <div class="m-auto my-2">
+  @for(user of Users; track user.id ){
   <div
-    (click)="onSelect()"
-    [ngClass]="{
-      'bg-[#433352] hover:bg-[#9965dd]': !selected,
-      'bg-[#9965dd]': selected
-    }"
-    class="h-14 w-[250px] mt-2 rounded-md flex"
+    routerLink="/users/{{ user.id }}"
+    routerLinkActive="selected"
+    (click)="onSelect(user.id)"
+    class="h-14 w-[250px] mt-2 rounded-md flex bg-[#433352] hover:bg-[#9965dd]"
   >
     <div class="flex space-x-5 p-1 items-center">
       <div class="h-10 w-10 bg-white rounded-full">
@@ -17,7 +16,9 @@
           srcset=""
         />
       </div>
+
       <div class="text-white text-sm">{{ user.name }}</div>
     </div>
   </div>
+  }
 </div>

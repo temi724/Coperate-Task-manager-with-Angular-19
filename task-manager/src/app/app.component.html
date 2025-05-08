@@ -1,6 +1,6 @@
 <app-header />
 <main class="flex gap-5 w-[55%] m-auto">
-  <ul>
+  <!-- <ul>
     @for(user of users; track user.id ){
     <li>
       <app-user
@@ -11,13 +11,14 @@
       />
     </li>
     }
-  </ul>
-  @if(selectedUser){
+  </ul> -->
+  <app-user />
+  <div class="w-[70%] mt-3">
+    <router-outlet />
+  </div>
+  <!-- @if(selectedUser){
   <div class="w-[70%] mt-3">
     <app-task class="" [userId]="selectedUser.id" [name]="selectedUser.name" />
   </div>
-  }@else{
-  <p class="mt-2 font-bold">Select a user to view their task</p>
-  }
+  }-->
 </main>
-<!-- <router-outlet /> -->

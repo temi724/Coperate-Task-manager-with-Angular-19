@@ -1,5 +1,6 @@
 import { Component, Input, input, Output, EventEmitter } from '@angular/core';
 import { DUMMY_USERS } from '../data';
+
 import { type User } from '../models/user';
 const randomIndex = Math.floor(Math.random() * DUMMY_USERS.length);
 
@@ -19,19 +20,26 @@ export class UserComponent {
   // @Input({ required: true }) userId!: string;
   // @Input({ required: true }) avatar!: string;
   // @Input({ required: true }) name!: string;
-  @Input({ required: true }) user!: User;
-  @Output() userSelected = new EventEmitter<string>();
-  @Input({ required: true }) selected!: boolean;
+  // @Input({ required: true }) user!: User;
+  // @Output() userSelected = new EventEmitter<string>();
+  // @Input({ required: true }) selected!: boolean;
   // name = input.required<string>();
 
-  // allUsers = DUMMY_USERS;
+  Users = DUMMY_USERS;
+  selectedUserId?: string;
+
   // selectedUser = 'u1';
 
   // get imagePath() {
   //   return `${this.selectedUser.avatar}`;
   // }
 
-  onSelect() {
-    this.userSelected.emit(this.user.id);
+  onSelect(userId: string) {
+    this.selectedUserId = userId;
+    // this.userSelected.emit(this.user.id);
+  }
+
+  get selectedUser() {
+    return this.Users.find((user) => user.id === this.selectedUserId);
   }
 }

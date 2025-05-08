@@ -25,3 +25,7 @@
     color: #e1eeeb;
     min-height: 100vh;
 }
+
+.selected{
+    background: #9965dd;
+}
