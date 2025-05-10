@@ -1,7 +1,7 @@
 <div class="m-auto my-2">
   @for(user of Users; track user.id ){
-  <div
-    routerLink="/users/{{ user.id }}"
+  <a
+    [routerLink]="['/users', user.id, 'tasks']"
     routerLinkActive="selected"
     (click)="onSelect(user.id)"
     class="h-14 w-[250px] mt-2 rounded-md flex bg-[#433352] hover:bg-[#9965dd]"
@@ -19,6 +19,6 @@
 
       <div class="text-white text-sm">{{ user.name }}</div>
     </div>
-  </div>
+  </a>
   }
 </div>

@@ -10,11 +10,10 @@ import { TaskService } from '../task.service';
   styleUrl: './task-card.component.css',
 })
 export class TaskCardComponent {
-  tasks = dummyTasks;
+  constructor(private taskService: TaskService) {}
+
   @Input({ required: true }) task!: Task;
   // @Output() taskCompleted = new EventEmitter<string>();
-
-  constructor(private taskService: TaskService) {}
 
   onComplete() {
     this.taskService.removeTask(this.task.id);

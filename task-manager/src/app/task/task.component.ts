@@ -1,4 +1,12 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  EventEmitter,
+  Inject,
+  Input,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { DUMMY_USERS, dummyTasks } from '../data';
 import { NewTask, Task } from '../models/task';
 import { AddTaskComponent } from './add-task/add-task.component';
@@ -18,7 +26,7 @@ export class TaskComponent implements OnInit {
   Users = DUMMY_USERS;
   @Input({ required: true }) userId!: string;
   addtaskClicked: boolean = false;
-
+  private destroyRef = Inject(DestroyRef);
   constructor(private taskService: TaskService, private ar: ActivatedRoute) {}
   get userTasks() {
     return this.taskService.userTasks(this.userId);
@@ -31,10 +39,11 @@ export class TaskComponent implements OnInit {
     this.addtaskClicked = false;
   }
   ngOnInit() {
-    this.ar.params.subscribe((params) => {
+    const subscription = this.ar.params.subscribe((params) => {
       this.userId = params['userId'];
       this.name =
         this.Users.find((user) => user.id === this.userId)?.name || '';
     });
+    this.destroyRef.onDestroy(() => subscription.unsubscribe());
   }
 }
