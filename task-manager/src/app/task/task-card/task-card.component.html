@@ -1,3 +1,4 @@
+@for(task of tasks; track task.id){
 <article class="bg-[#bf9ee5] mt-2 text-left p-2 rounded-md text-[#25113d]">
   <h1 class="font-bold">{{ task.title }}</h1>
   <time class="text-sm" datetime="">{{
@@ -13,6 +14,7 @@
     </button>
   </p>
 </article>
+}
 <!-- <ul>
     @for(task of userTasks; track task.id) {
     <li>

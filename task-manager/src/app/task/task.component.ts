@@ -41,6 +41,7 @@ export class TaskComponent implements OnInit {
   ngOnInit() {
     const subscription = this.ar.params.subscribe((params) => {
       this.userId = params['userId'];
+      // console.log(this.userId);
       this.name =
         this.Users.find((user) => user.id === this.userId)?.name || '';
     });

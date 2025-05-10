@@ -8,7 +8,7 @@ import { UserComponent } from './user/user.component';
 import { TaskComponent } from './task/task.component';
 import { TaskCardComponent } from './task/task-card/task-card.component';
 import { AddTaskComponent } from './task/add-task/add-task.component';
-import { provideRouter, RouterOutlet } from '@angular/router';
+import { provideRouter, RouterOutlet, withRouterConfig } from '@angular/router';
 import { routes } from './app.route';
 import { NoTaskComponent } from './no-task/no-task.component';
 import { RouterLinkActive } from '@angular/router';
@@ -31,7 +31,14 @@ import { RouterLinkActive } from '@angular/router';
     RouterLinkActive,
     RouterOutlet,
   ],
-  providers: [provideRouter(routes)],
+  providers: [
+    provideRouter(
+      routes,
+      withRouterConfig({
+        paramsInheritanceStrategy: 'always',
+      })
+    ),
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

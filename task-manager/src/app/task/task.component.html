@@ -13,15 +13,7 @@
     </button>
   </div>
   <router-outlet />
-  <!-- <ul>
-    @for(task of userTasks; track task.id) {
-    <li>
-      <app-task-card [task]="task" />
-    </li>
-    }
-  </ul>
-</section>
-@if (addtaskClicked) {
-<app-add-task [userId]="userId" (close)="closeAddTask()" />
-} -->
+  @if (addtaskClicked) {
+  <app-add-task [userId]="userId" (close)="closeAddTask()" />
+  }
 </section>
